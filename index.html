@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GISA GAMES | Play Beyond Limits</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#080a12;--panel:#111522;--muted:#9299ad;
+  --purple:#8b5cf6;--blue:#3285ff;--white:#f7f8ff;
+}
+body{
+  font-family:Arial,sans-serif;background:var(--bg);
+  color:var(--white);min-height:100vh;
+}
+header{
+  height:76px;display:flex;align-items:center;
+  justify-content:space-between;padding:0 7%;
+  background:#0d101bdc;border-bottom:1px solid #252a3b;
+  position:sticky;top:0;z-index:10;backdrop-filter:blur(15px);
+}
+.logo{font-size:24px;font-weight:900;letter-spacing:1px}
+.logo span{color:var(--purple)}
+nav{display:flex;gap:28px}
+nav a{color:#c2c6d5;text-decoration:none;font-size:14px}
+nav a:hover{color:white}
+.search{
+  background:#171c2b;border:1px solid #30364a;
+  border-radius:9px;padding:11px 14px;color:white;width:180px;
+}
+.hero{
+  padding:85px 8%;min-height:420px;
+  display:flex;align-items:center;
+  background:
+  radial-gradient(ellipse at 85% 40%,#5930a966,transparent 45%),
+  radial-gradient(ellipse at 60% 100%,#164c9b55,transparent 45%),
+  #0b0e19;
+}
+.hero-content{max-width:650px}
+.tag{color:#a78bfa;font-size:12px;font-weight:bold;letter-spacing:3px}
+h1{font-size:clamp(42px,6vw,70px);line-height:1.08;margin:20px 0}
+h1 span{color:#9c7aff}
+.hero p{color:var(--muted);font-size:16px;line-height:1.8}
+.btn{
+  display:inline-block;margin-top:27px;padding:14px 24px;
+  border-radius:8px;background:linear-gradient(100deg,#7446e9,#337dff);
+  color:white;text-decoration:none;font-weight:bold;border:0;cursor:pointer;
+}
+.section{padding:55px 8%}
+.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px}
+.section h2{font-size:25px}
+.section-head p{color:var(--muted);font-size:13px;margin-top:8px}
+.categories{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px}
+.category{
+  padding:10px 18px;border-radius:30px;
+  background:#141827;border:1px solid #292f43;
+  color:#c5c9d7;cursor:pointer;
+}
+.category.active,.category:hover{
+  background:#6843cf;color:white;border-color:#9273ef;
+}
+.games{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{
+  background:var(--panel);border:1px solid #252b3e;
+  border-radius:13px;overflow:hidden;transition:.25s;
+}
+.card:hover{transform:translateY(-5px);border-color:#7958db}
+.art{
+  height:175px;display:flex;align-items:center;
+  justify-content:center;font-size:65px;
+}
+.art.one{background:linear-gradient(135deg,#172c57,#532b9a)}
+.art.two{background:linear-gradient(135deg,#5b211f,#d16b2d)}
+.art.three{background:linear-gradient(135deg,#123c45,#168b9b)}
+.art.four{background:linear-gradient(135deg,#34205b,#a34792)}
+.art.five{background:linear-gradient(135deg,#303d20,#879b35)}
+.art.six{background:linear-gradient(135deg,#172b50,#477ec0)}
+.info{padding:18px}
+.info h3{font-size:17px;margin-bottom:8px}
+.info p{font-size:13px;color:var(--muted)}
+.info button{
+  margin-top:15px;width:100%;padding:11px;
+  border:1px solid #45405f;border-radius:7px;
+  background:#1a1d30;color:white;cursor:pointer;
+}
+.info button:hover{background:#6843cf}
+.empty{display:none;color:var(--muted);padding:25px 0}
+footer{
+  padding:30px 8%;border-top:1px solid #252a3b;
+  color:var(--muted);text-align:center;font-size:13px;
+}
+@media(max-width:800px){
+  nav{display:none}
+  .games{grid-template-columns:repeat(2,1fr)}
+  header{padding:0 5%}
+  .search{width:125px}
+}
+@media(max-width:500px){
+  .games{grid-template-columns:1fr}
+  .hero{padding:65px 6%}
+  .section{padding:40px 6%}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">GISA <span>GAMES</span></div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#games">Games</a>
+    <a href="#categories">Categories</a>
+    <a href="#about">About</a>
+  </nav>
+  <input class="search" id="search" placeholder="⌕ Search games...">
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="tag">WELCOME TO THE NEXT LEVEL</div>
+    <h1>PLAY BEYOND <span>LIMITS.</span></h1>
+    <p>
+      Discover amazing games, explore new worlds
+      and experience gaming without limits.
+      Your next adventure starts here.
+    </p>
+    <a class="btn" href="#games">EXPLORE GAMES →</a>
+  </div>
+</section>
+
+<section class="section" id="games">
+  <div class="section-head">
+    <div>
+      <h2>Explore Games</h2>
+      <p>Discover your next favourite game.</p>
+    </div>
+  </div>
+
+  <div class="categories" id="categories">
+    <button class="category active" data-filter="all">All Games</button>
+    <button class="category" data-filter="racing">Racing</button>
+    <button class="category" data-filter="action">Action</button>
+    <button class="category" data-filter="football">Football</button>
+    <button class="category" data-filter="adventure">Adventure</button>
+  </div>
+
+  <div class="games" id="gameList">
+    <article class="card" data-category="racing">
+      <div class="art one">🏎️</div>
+      <div class="info">
+        <h3>Speed Racing</h3>
+        <p>Racing • High speed adventures</p>
+        <button onclick="details('Speed Racing')">View Details →</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="action">
+      <div class="art two">⚔️</div>
+      <div class="info">
+        <h3>Warrior Legends</h3>
+        <p>Action • Epic battles</p>
+        <button onclick="details('Warrior Legends')">View Details →</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="football">
+      <div class="art three">⚽</div>
+      <div class="info">
+        <h3>Football Stars</h3>
+        <p>Football • Become a champion</p>
+        <button onclick="details('Football Stars')">View Details →</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="adventure">
+      <div class="art four">🗺️</div>
+      <div class="info">
+        <h3>Lost World</h3>
+        <p>Adventure • Explore new worlds</p>
+        <button onclick="details('Lost World')">View Details →</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="racing">
+      <div class="art five">🏁</div>
+      <div class="info">
+        <h3>Extreme Drift</h3>
+        <p>Racing • Master the drift</p>
+        <button onclick="details('Extreme Drift')">View Details →</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="action">
+      <div class="art six">🚀</div>
+      <div class="info">
+        <h3>Space Mission</h3>
+        <p>Action • Beyond the universe</p>
+        <button onclick="details('Space Mission')">View Details →</button>
+      </div>
+    </article>
+  </div>
+  <p class="empty" id="empty">No games found.</p>
+</section>
+
+<footer id="about">
+  <div class="logo">GISA <span>GAMES</span></div>
+  <p style="margin-top:12px">Your gaming world. Your next adventure.</p>
+  <p style="margin-top:12px">© 2026 Gisa Games. All rights reserved.</p>
+</footer>
+
+<script>
+const cards=[...document.querySelectorAll('.card')];
+let current='all';
+
+function filterGames(){
+  const query=document.getElementById('search').value.toLowerCase();
+  let visible=0;
+  cards.forEach(card=>{
+    const matchCategory=current==='all'||card.dataset.category===current;
+    const matchSearch=card.innerText.toLowerCase().includes(query);
+    card.style.display=matchCategory&&matchSearch?'':'none';
+    if(matchCategory&&matchSearch)visible++;
+  });
+  document.getElementById('empty').style.display=visible?'none':'block';
+}
+
+document.querySelectorAll('.category').forEach(button=>{
+  button.addEventListener('click',()=>{
+    document.querySelector('.category.active').classList.remove('active');
+    button.classList.add('active');
+    current=button.dataset.filter;
+    filterGames();
+  });
+});
+
+document.getElementById('search').addEventListener('input',filterGames);
+
+function details(name){
+  alert(name+' game details will be available soon!');
+}
+</script>
+
+</body>
+</html>
